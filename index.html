@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular JS OIDC Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://apis.google.com/js/client.js"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/platform.js"></script>
+    <script type="text/javascript" src="Angulat-JWT/angular-jwt.js"></script>
+    <script type="text/javascript" src="Ng-Storage/ngStorage.min.js"></script>
+    <script type="text/javascript" src="Ng-Cookies/angular-cookies.min.js"></script>
+
+    <script src="app.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        ( function () {
+            var p = document.createElement( 'script' );
+            p.type = 'text/javascript';
+            p.async = true;
+            p.src = "https://apis.google.com/js/client.js?onload=onLoadFunction";
+            var s = document.getElementsByTagName( 'script' )[ 0 ];
+            s.parentNode.insertBefore( p, s );
+        } )();
+    </script>
+
+<link rel="icon" href="images/social.png" type="image/gif" sizes="16x16">
+
+</head>
+
+<body ng-app="myApp" ng-controller="myController">
+    
+
+    <div class="textAlignmentCentre">
+        <div class="headingTitle">Social Login!!</div>
+        <div style="padding-left: 11.5%;">Happy Learning</div>
+    </div>
+
+
+    <div class="mainDiv">
+        <div class="displayInline width40">
+            <button class="loginBtn loginBtn--google cursor-pointer" ng-click="onGoogleLogin()" ng-if="!isGoogleAuthenticated">
+                Login with Google
+            </button>
+
+            <div ng-if="isGoogleAuthenticated">
+                <h2>Google !!</h2>
+                <h4>{{gmail.username}}</h4>
+                <h4>{{gmail.email}}</h4>
+                <img src="{{g_image}}" alt=" " style="width: 40%; height: 200px" />
+            </div>
+        </div>
+
+        <div class="vl displayInline"></div>
+
+        <div class="displayInline width40">
+            <button class="loginBtn loginBtn--facebook cursor-pointer" ng-click="onFacebookLogin()" ng-if="!isFacebookAuthenticated">
+                Login with Facebook
+            </button>
+
+            <div ng-if="isFacebookAuthenticated">
+                <h2>Facebook !!</h2>
+                <h4>{{facebook.username}}</h4>
+                <h4>{{facebook.email}}</h4>
+                <img src="{{fb_image}}" alt=" " style="width: 40%; height: 200px" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
